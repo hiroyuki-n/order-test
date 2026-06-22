@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import {
-  ORDER_STATUS_META,
-  type OrderStatus,
-  type OrderWithDetails,
-} from '~/types/database.types'
+import type { OrderStatus, OrderWithDetails } from '~/types/database.types'
 
 const { orders, loading, updateStatus } = useOrders()
 
@@ -21,17 +17,6 @@ const counts = computed(() => {
 })
 
 const updating = ref<number | null>(null)
-const advance = async (order: OrderWithDetails) => {
-  const next = ORDER_STATUS_META[order.status].next
-  if (!next) return
-  updating.value = order.id
-  try {
-    await updateStatus(order.id, next)
-  } finally {
-    updating.value = null
-  }
-}
-
 const setStatus = async (order: OrderWithDetails, status: OrderStatus) => {
   if (order.status === status) return
   updating.value = order.id
@@ -120,15 +105,6 @@ const statusButtons: { status: OrderStatus; label: string }[] = [
             {{ btn.label }}
           </button>
         </div>
-
-        <button
-          v-if="ORDER_STATUS_META[order.status].next"
-          :disabled="updating === order.id"
-          class="mt-2 w-full text-sm font-medium py-2 rounded-md bg-brand-600 hover:bg-brand-700 text-white disabled:opacity-50"
-          @click="advance(order)"
-        >
-          → 次へ進める（{{ ORDER_STATUS_META[ORDER_STATUS_META[order.status].next!].label }}）
-        </button>
       </article>
     </div>
   </div>
