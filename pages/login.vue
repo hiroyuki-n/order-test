@@ -30,7 +30,6 @@ const onSubmit = async () => {
   <div class="max-w-md mx-auto px-4 py-16">
     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
       <div class="text-center mb-6">
-        <div class="text-4xl mb-2">🔐</div>
         <h1 class="text-xl font-bold text-slate-800">
           「{{ ROLE_LABEL[role] }}」画面へのログイン
         </h1>

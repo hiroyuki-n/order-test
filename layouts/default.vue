@@ -3,9 +3,9 @@ const route = useRoute()
 const { unlocked, logout } = useAppAuth()
 
 const navItems = [
-  { to: '/store', label: '店舗', icon: '🏪' },
-  { to: '/factory', label: '製造 (KDS)', icon: '👨\u200d🍳' },
-  { to: '/admin', label: '管理', icon: '📊' },
+  { to: '/store', label: '店舗' },
+  { to: '/factory', label: '製造' },
+  { to: '/admin', label: '管理' },
 ]
 </script>
 
@@ -14,8 +14,7 @@ const navItems = [
     <header class="bg-white border-b border-slate-200 sticky top-0 z-20">
       <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
         <NuxtLink to="/" class="font-bold text-slate-800 flex items-center gap-2">
-          <span class="text-xl">🍮</span>
-          <span>受発注 / KDS</span>
+          <span>受発注システム</span>
         </NuxtLink>
 
         <nav class="flex items-center gap-1">
@@ -30,7 +29,7 @@ const navItems = [
                 : 'text-slate-600 hover:bg-slate-100'
             "
           >
-            <span class="mr-1">{{ item.icon }}</span>{{ item.label }}
+            {{ item.label }}
           </NuxtLink>
           <button
             v-if="unlocked.length"

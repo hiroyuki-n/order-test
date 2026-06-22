@@ -47,14 +47,6 @@ const minutesAgo = (iso: string) => Math.floor((Date.now() - new Date(iso).getTi
 const formatTime = (iso: string) =>
   new Date(iso).toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' })
 
-// カード左端の色（ステータス別）
-const cardAccent: Record<OrderStatus, string> = {
-  ordered: 'border-l-rose-500',
-  checked: 'border-l-amber-500',
-  cooking: 'border-l-sky-500',
-  completed: 'border-l-emerald-500',
-}
-
 const statusButtons: { status: OrderStatus; label: string }[] = [
   { status: 'checked', label: '確認' },
   { status: 'cooking', label: '製造中' },
@@ -65,7 +57,7 @@ const statusButtons: { status: OrderStatus; label: string }[] = [
 <template>
   <div class="max-w-7xl mx-auto px-4 py-8">
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-      <h1 class="text-2xl font-bold text-slate-800">👨‍🍳 製造画面 (KDS)</h1>
+      <h1 class="text-2xl font-bold text-slate-800">製造画面</h1>
       <div class="flex items-center gap-4">
         <div class="flex items-center gap-3 text-sm">
           <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500" />未確認 {{ counts.ordered }}</span>
@@ -81,15 +73,14 @@ const statusButtons: { status: OrderStatus; label: string }[] = [
 
     <p v-if="loading" class="text-slate-400 text-center py-20">読み込み中…</p>
     <p v-else-if="!visibleOrders.length" class="text-slate-400 text-center py-20">
-      現在、対応中の注文はありません 🎉
+      現在、対応中の注文はありません
     </p>
 
     <div v-else class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <article
         v-for="order in visibleOrders"
         :key="order.id"
-        class="bg-white rounded-xl border border-slate-200 border-l-4 p-4 shadow-sm flex flex-col"
-        :class="cardAccent[order.status]"
+        class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex flex-col"
       >
         <div class="flex items-center justify-between mb-2">
           <div>

@@ -71,7 +71,7 @@ const formatTime = (iso: string) =>
 
 <template>
   <div class="max-w-6xl mx-auto px-4 py-8">
-    <h1 class="text-2xl font-bold text-slate-800 mb-6">🏪 店舗画面</h1>
+    <h1 class="text-2xl font-bold text-slate-800 mb-6">店舗画面</h1>
 
     <!-- 店舗選択 -->
     <div class="bg-white rounded-xl border border-slate-200 p-4 mb-6 flex flex-wrap items-center gap-3">
@@ -100,7 +100,6 @@ const formatTime = (iso: string) =>
           <li v-for="p in products" :key="p.id" class="flex items-center justify-between py-3">
             <div>
               <p class="font-medium text-slate-800">{{ p.name }}</p>
-              <p class="text-xs text-slate-400">¥{{ p.price.toLocaleString() }}</p>
             </div>
             <div class="flex items-center gap-2">
               <button class="w-8 h-8 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50" @click="dec(p.id)">−</button>

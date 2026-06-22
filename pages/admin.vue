@@ -67,7 +67,7 @@ const formatTime = (iso: string) =>
 <template>
   <div class="max-w-6xl mx-auto px-4 py-8">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-2xl font-bold text-slate-800">📊 管理ダッシュボード</h1>
+      <h1 class="text-2xl font-bold text-slate-800">管理ダッシュボード</h1>
       <span class="flex items-center gap-1.5 text-xs text-slate-400">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> リアルタイム集計
       </span>

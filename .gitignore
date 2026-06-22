@@ -10,3 +10,6 @@ node_modules
 dist
 .DS_Store
 .data
+
+# 個人用メモ（パスワード等を含むため公開しない）
+メモ.txt
