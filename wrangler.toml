@@ -1,0 +1,11 @@
+# Cloudflare Workers 用設定（Nitro cloudflare_module プリセットの出力に対応）
+# Cloudflare の Workers Builds が `npx wrangler deploy` をルートで実行する際にこの設定を読み込みます。
+name = "order-test"
+main = "./.output/server/index.mjs"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Nitro の Worker は env.ASSETS 経由で静的ファイル（/_nuxt/* など）を配信するため必須
+[assets]
+directory = "./.output/public"
+binding = "ASSETS"

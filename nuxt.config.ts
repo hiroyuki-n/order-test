@@ -7,9 +7,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  // Cloudflare Pages (Edge / SSR) 向けプリセット
+  // Cloudflare Workers 向けプリセット
+  // （Workers Builds の `npx wrangler deploy` にゼロ設定で対応。
+  //   Nitro が main エントリと assets を含む wrangler 設定を自動生成する）
   nitro: {
-    preset: 'cloudflare-pages',
+    preset: 'cloudflare_module',
   },
 
   supabase: {

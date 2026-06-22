@@ -4,6 +4,8 @@ node_modules
 .nitro
 .cache
 .output
+.wrangler
+.dev.vars
 .env
 dist
 .DS_Store
